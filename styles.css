@@ -14,7 +14,7 @@ body {
 
 /* Navigation */
 nav {
-    background: #3A1F47; /* Darker shade of deep purple */
+    background: #3A1F47; /* Darker deep purple */
     padding: 10px 0;
     position: sticky;
     top: 0;
@@ -29,7 +29,7 @@ nav ul {
 }
 
 nav a {
-    color: #D4A017; /* Rich gold */
+    color: #D4A017;
     text-decoration: none;
     font-size: 20px;
     padding: 5px 10px;
@@ -37,8 +37,8 @@ nav a {
 }
 
 nav a:hover, nav a.active {
-    background: #D4A017; /* Rich gold */
-    color: #4A2C5A; /* Deep purple */
+    background: #D4A017;
+    color: #4A2C5A;
     border-radius: 5px;
 }
 
@@ -46,10 +46,11 @@ nav a:hover, nav a.active {
 header {
     text-align: center;
     padding: 20px;
-    background: #4A2C5A; /* Deep purple */
-    color: #D4A017; /* Rich gold */
+    background: #4A2C5A;
+    color: #D4A017;
     position: relative;
     overflow: hidden;
+    min-height: 100px; /* Space for snow */
 }
 
 header h1 {
@@ -66,28 +67,50 @@ header p {
     z-index: 1;
 }
 
-/* Snow */
-header::before {
+/* Snow - Particle effect */
+header::before,
+header::after,
+header > .snow1,
+header > .snow2 {
     content: '';
     position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: 150%;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.9) 0px, /* White flakes */
-        rgba(255, 255, 255, 0.9) 2px,
-        transparent 2px,
-        transparent 10px
-    );
-    animation: snow 5s linear infinite;
+    width: 6px; /* Pixel flake size */
+    height: 6px;
+    background: #FFF; /* White flakes */
+    opacity: 0.7;
     z-index: 0;
+    animation: fall linear infinite;
 }
 
-@keyframes snow {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(130px); }
+/* Positioning and timing */
+header::before {
+    left: 20%;
+    animation-duration: 4s;
+    animation-delay: 0s;
+}
+
+header::after {
+    left: 50%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+header > .snow1 {
+    left: 70%;
+    animation-duration: 3s;
+    animation-delay: 2s;
+}
+
+header > .snow2 {
+    left: 90%;
+    animation-duration: 6s;
+    animation-delay: 0.5s;
+}
+
+/* Fall animation */
+@keyframes fall {
+    0% { transform: translateY(-20px); opacity: 0.7; }
+    100% { transform: translateY(120px); opacity: 0; }
 }
 
 /* Main */
@@ -98,10 +121,10 @@ main {
 }
 
 .parchment {
-    background: #F0E8D0; /* Parchment off-white */
-    color: #000; /* Black text */
+    background: #F0E8D0;
+    color: #000;
     padding: 20px;
-    border: 4px solid #D4A017; /* Rich gold frame */
+    border: 4px solid #D4A017;
     box-shadow: 0 0 0 4px #000;
 }
 
@@ -109,8 +132,8 @@ main {
     font-size: 28px;
     text-align: center;
     margin-bottom: 15px;
-    color: #4A2C5A; /* Deep purple */
-    text-shadow: 1px 1px #D4A017; /* Rich gold outline */
+    color: #4A2C5A;
+    text-shadow: 1px 1px #D4A017;
 }
 
 .parchment ul {
@@ -121,8 +144,8 @@ main {
 /* Call to Action */
 .cta {
     display: inline-block;
-    background: #D4A017; /* Rich gold */
-    color: #4A2C5A; /* Deep purple */
+    background: #D4A017;
+    color: #4A2C5A;
     padding: 10px 20px;
     text-decoration: none;
     font-size: 20px;
@@ -132,20 +155,17 @@ main {
 }
 
 .cta:hover {
-    background: #B8860B; /* Darker gold for hover */
+    background: #B8860B; /* Darker gold */
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 10px;
-    border-top: 4px solid #D4A017; /* Rich gold */
+    border-top: 4px solid #D4A017;
     font-size: 16px;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-    nav ul { flex-direction: column; align-items: center; }
-    header h1 { font-size: 30px; }
-    .parchment h2 { font-size: 22px; }
-}
+    nav ul
