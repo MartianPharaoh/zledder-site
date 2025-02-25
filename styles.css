@@ -10,57 +10,47 @@ body {
     color: #FFD700; /* Gold text globally */
     font-family: 'Press Start 2P', cursive; /* NES pixel font */
     line-height: 1.5;
-    overflow-x: hidden;
 }
 
-/* Header - Icy, pixelated title with snow */
+/* Header - Simplified */
 header {
     text-align: center;
     padding: 20px;
     border-bottom: 4px solid #FFD700; /* Gold border */
-    background: linear-gradient(to bottom, #800080, #4B0082); /* Violet fade */
-    position: relative;
-    overflow: hidden;
-    min-height: 100px; /* Space for snow */
+    background: #800080; /* Solid violet, no gradient */
 }
 
 header h1 {
     font-size: 32px;
     text-shadow: 2px 2px #000; /* Black outline */
-    position: relative;
-    z-index: 1; /* Above snow */
 }
 
 header p {
     font-size: 16px;
     margin-top: 5px;
-    position: relative;
-    z-index: 1;
 }
 
-/* Snow animation - CSS-only, no image */
+/* Snow - Minimal CSS */
 header::before {
     content: '';
     position: absolute;
-    top: -50px; /* Start above header */
+    top: 0;
     left: 0;
     width: 100%;
-    height: 200%; /* Extend beyond header */
+    height: 100%;
     background: repeating-linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.7) 0px,
         rgba(255, 255, 255, 0.7) 2px,
         transparent 2px,
         transparent 10px
-    ); /* White pixel flakes */
-    animation: snow 5s linear infinite; /* Faster fall */
-    z-index: 0; /* Behind text */
+    );
+    animation: snow 5s linear infinite;
 }
 
-/* Snow keyframes */
 @keyframes snow {
     0% { transform: translateY(0); }
-    100% { transform: translateY(50%); } /* Smooth fall */
+    100% { transform: translateY(100px); }
 }
 
 /* Main content - Parchment */
@@ -76,7 +66,6 @@ main {
     padding: 20px;
     border: 4px solid #FFD700; /* Gold frame */
     box-shadow: 0 0 0 4px #000; /* Black border */
-    position: relative;
 }
 
 .parchment h2 {
