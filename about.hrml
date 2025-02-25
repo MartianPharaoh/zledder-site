@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Zledder</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="this-week.html">This Week</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="freebies.html">Freebies</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Zledder</h1>
+        <p>Chronicles of the Frostrealms</p>
+    </header>
+    <main>
+        <section class="parchment">
+            <h2>About the Frostrealms</h2>
+            <p>Zledder is an icy citadel where scribes chronicle gaming sagas, forged in the frozen wastes of a pixelated realm.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Foraged by Zledder Scribes - 2025</p>
+    </footer>
+</body>
+</html>
