@@ -21,14 +21,14 @@ header {
     background: linear-gradient(to bottom, #800080, #4B0082); /* Violet fade */
     position: relative;
     overflow: hidden;
-    min-height: 100px; /* Ensure space for snow */
+    min-height: 100px; /* Space for snow */
 }
 
 header h1 {
     font-size: 32px;
     text-shadow: 2px 2px #000; /* Black outline */
-    position: relative; /* Keep text above snow */
-    z-index: 1; /* Ensure text isn’t buried */
+    position: relative;
+    z-index: 1; /* Above snow */
 }
 
 header p {
@@ -38,24 +38,29 @@ header p {
     z-index: 1;
 }
 
-/* Snow animation - Enhanced for visibility */
+/* Snow animation - CSS-only, no image */
 header::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -50px; /* Start above header */
     left: 0;
     width: 100%;
-    height: 100%;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVQYV2NkYGD4z8DA8P+/f4ZQUlJSQkxMTFRUVFSkpaUAAMXDAbGUSLAAAAAASUVORK5CYII=') repeat;
-    background-size: 8px 8px; /* Match NES pixel size */
-    animation: snow 10s linear infinite;
-    z-index: 0; /* Snow behind text */
-    opacity: 0.8; /* Slightly more visible */
+    height: 200%; /* Extend beyond header */
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.7) 0px,
+        rgba(255, 255, 255, 0.7) 2px,
+        transparent 2px,
+        transparent 10px
+    ); /* White pixel flakes */
+    animation: snow 5s linear infinite; /* Faster fall */
+    z-index: 0; /* Behind text */
 }
 
+/* Snow keyframes */
 @keyframes snow {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50%); } /* Smooth fall */
 }
 
 /* Main content - Parchment */
@@ -67,7 +72,7 @@ main {
 
 .parchment {
     background: #F0E8D0; /* Parchment off-white */
-    color: #000; /* Black text here only */
+    color: #000; /* Black text here */
     padding: 20px;
     border: 4px solid #FFD700; /* Gold frame */
     box-shadow: 0 0 0 4px #000; /* Black border */
