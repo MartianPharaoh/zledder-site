@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,63 +6,91 @@
 }
 
 body {
-    background: #800080; /* Violet backdrop */
-    color: #FFD700; /* Gold text globally */
-    font-family: 'Press Start 2P', cursive; /* NES pixel font */
+    background: #4A2C5A; /* Deep purple backdrop */
+    color: #D4A017; /* Rich gold text */
+    font-family: 'VT323', monospace; /* Retro, readable */
     line-height: 1.5;
 }
 
-/* Header - With snow */
+/* Navigation */
+nav {
+    background: #3A1F47; /* Darker shade of deep purple */
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #D4A017; /* Rich gold */
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    transition: background 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background: #D4A017; /* Rich gold */
+    color: #4A2C5A; /* Deep purple */
+    border-radius: 5px;
+}
+
+/* Header */
 header {
     text-align: center;
     padding: 20px;
-    background: #800080; /* Violet */
-    color: #FFD700; /* Gold text */
-    position: relative; /* Anchor for snow */
-    overflow: hidden; /* Contain snow */
-    min-height: 80px; /* Space for snow */
+    background: #4A2C5A; /* Deep purple */
+    color: #D4A017; /* Rich gold */
+    position: relative;
+    overflow: hidden;
 }
 
 header h1 {
-    font-size: 32px;
-    text-shadow: 2px 2px #000; /* Black outline */
-    position: relative; /* Above snow */
-    z-index: 1; /* Ensure text visibility */
+    font-size: 40px;
+    text-shadow: 2px 2px #000;
+    position: relative;
+    z-index: 1;
 }
 
 header p {
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 5px;
     position: relative;
     z-index: 1;
 }
 
-/* Snow - Clear and simple */
+/* Snow */
 header::before {
     content: '';
     position: absolute;
-    top: -50px; /* Start above */
+    top: -50px;
     left: 0;
     width: 100%;
-    height: 150%; /* Cover header and beyond */
+    height: 150%;
     background: repeating-linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.9) 0px, /* Brighter flakes */
+        rgba(255, 255, 255, 0.9) 0px, /* White flakes */
         rgba(255, 255, 255, 0.9) 2px,
         transparent 2px,
         transparent 10px
     );
     animation: snow 5s linear infinite;
-    z-index: 0; /* Behind text */
+    z-index: 0;
 }
 
-/* Snow animation */
 @keyframes snow {
     0% { transform: translateY(0); }
-    100% { transform: translateY(130px); } /* Fall through header */
+    100% { transform: translateY(130px); }
 }
 
-/* Main content - Parchment */
+/* Main */
 main {
     max-width: 800px;
     margin: 20px auto;
@@ -71,18 +99,18 @@ main {
 
 .parchment {
     background: #F0E8D0; /* Parchment off-white */
-    color: #000; /* Black text here */
+    color: #000; /* Black text */
     padding: 20px;
-    border: 4px solid #FFD700; /* Gold frame */
-    box-shadow: 0 0 0 4px #000; /* Black border */
+    border: 4px solid #D4A017; /* Rich gold frame */
+    box-shadow: 0 0 0 4px #000;
 }
 
 .parchment h2 {
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
     margin-bottom: 15px;
-    color: #800080; /* Violet header */
-    text-shadow: 1px 1px #FFD700; /* Gold outline */
+    color: #4A2C5A; /* Deep purple */
+    text-shadow: 1px 1px #D4A017; /* Rich gold outline */
 }
 
 .parchment ul {
@@ -90,16 +118,34 @@ main {
     margin-left: 20px;
 }
 
+/* Call to Action */
+.cta {
+    display: inline-block;
+    background: #D4A017; /* Rich gold */
+    color: #4A2C5A; /* Deep purple */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cta:hover {
+    background: #B8860B; /* Darker gold for hover */
+}
+
 /* Footer */
 footer {
     text-align: center;
     padding: 10px;
-    border-top: 4px solid #FFD700;
-    font-size: 12px;
+    border-top: 4px solid #D4A017; /* Rich gold */
+    font-size: 16px;
 }
 
-/* Mobile tweaks */
+/* Responsive */
 @media (max-width: 600px) {
-    header h1 { font-size: 24px; }
-    .parchment h2 { font-size: 18px; }
+    nav ul { flex-direction: column; align-items: center; }
+    header h1 { font-size: 30px; }
+    .parchment h2 { font-size: 22px; }
 }
