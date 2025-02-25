@@ -12,12 +12,12 @@ body {
     line-height: 1.5;
 }
 
-/* Header - Simplified */
+/* Header - Bare minimum */
 header {
     text-align: center;
     padding: 20px;
-    border-bottom: 4px solid #FFD700; /* Gold border */
-    background: #800080; /* Solid violet, no gradient */
+    background: #800080; /* Match body */
+    color: #FFD700; /* Explicit gold */
 }
 
 header h1 {
@@ -28,29 +28,6 @@ header h1 {
 header p {
     font-size: 16px;
     margin-top: 5px;
-}
-
-/* Snow - Minimal CSS */
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.7) 0px,
-        rgba(255, 255, 255, 0.7) 2px,
-        transparent 2px,
-        transparent 10px
-    );
-    animation: snow 5s linear infinite;
-}
-
-@keyframes snow {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100px); }
 }
 
 /* Main content - Parchment */
